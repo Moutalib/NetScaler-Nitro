@@ -25,7 +25,7 @@ nitro_session_cookie['NITRO_AUTH_TOKEN'] = cookies
 headers_ns_features =
    {
    'Content-Type' => 'application/vnd.com.citrix.netscaler.nsfeature+json',
-   #'X-NITRO-USER' => 'nsroot',
+   #'X-NITRO-USER' => 'nsroot', (only required when there is no session cookie to resend)
    #'X-NITRO-PASS' => 'secret_password',
    'Accept' => 'json'
 }
