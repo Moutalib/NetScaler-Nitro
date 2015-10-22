@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# This script is an example for using a session cookie as an authentication token for further NetScaler Nitro requests
+
 require 'rest-client'
 
 url_login = 'http://192.168.1.51/nitro/v1/config/login/'
@@ -14,12 +16,12 @@ headers_login =
 	'Accept' => 'json'
 	}	
 
-  #catpure the cookie and pass the session cookie to the cookies var.
+#catpure the cookie and pass the session cookie to the cookies variable.
 login = RestClient.post(url_login,payload_login,headers_login)
 cookies = login.cookies['NITRO_AUTH_TOKEN']
 
 
-nitro_session_cookie = {}
+nitro_session_cookie = {} # create a empty hash
 nitro_session_cookie['NITRO_AUTH_TOKEN'] = cookies
 
 headers_ns_features =
