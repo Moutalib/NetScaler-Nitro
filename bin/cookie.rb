@@ -17,7 +17,9 @@ headers_login =
 	'Accept' => 'json'
 	}
 
-#catpure the cookie and pass the session cookie to the cookies variable.
+
+
+# catpure the cookie and pass the session cookie to the cookies variable.
 login = RestClient.post(url_login,payload_login,headers_login)
 cookies = login.cookies['NITRO_AUTH_TOKEN']
 
