@@ -3,7 +3,10 @@
 # This script is an example for using a session cookie as an authentication token for further NetScaler Nitro requests
 
 require 'rest-client'
-$ns_box = '<netscaler ip'>
+
+
+ns_box = '<netscaler ip'>
+$g__ns_box = "<ip address>"
 
 url_login = 'http://192.168.1.51/nitro/v1/config/login/'
 url_ns_features = "http://192.168.1.51/nitro/v1/config/nsfeature?action=enable"
@@ -18,11 +21,9 @@ headers_login =
 	}
 
 
-
 # catpure the cookie and pass the session cookie to the cookies variable.
 login = RestClient.post(url_login,payload_login,headers_login)
 cookies = login.cookies['NITRO_AUTH_TOKEN']
-
 
 nitro_session_cookie = {} # create a empty hash
 nitro_session_cookie['NITRO_AUTH_TOKEN'] = cookies
